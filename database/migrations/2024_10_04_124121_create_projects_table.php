@@ -21,7 +21,7 @@ return new class extends Migration
             $table->date('end_date')->nullable();
             $table->string('stack');
             $table->boolean('status')->default(0);
-            $table->string('image_path')->default('https://placehold.co/500x500?text=Project+Image')->nullable();
+            $table->string('image_path')->nullable();
             $table->string('slug');
             $table->timestamps();
         });
