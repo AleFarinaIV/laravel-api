@@ -18,9 +18,9 @@ class ProjectController extends Controller
     }
 
     public function show($slug) {
-        
+
         // recupero un progetto con un determinato slug
-        $project = Project::with('type', 'technologies')->where('slug', $slug)->get();
+        $project = Project::with('type', 'technologies')->where('slug', $slug)->first();
 
         // controllo che il progetto esista e non sia null
         if($project) {
