@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Api;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -19,7 +19,7 @@ class LeadController extends Controller
         // richieste di validazione
         $validator = Validator::make($data, [
             'name' => 'required|max:50',
-            'surname' => 'required, max:50',
+            'surname' => 'required|max:50',
             'phone' => 'required|max:15',
             'email_address' => 'required|max:50',
             'content' => 'required',
@@ -50,7 +50,7 @@ class LeadController extends Controller
         $new_lead->save();
 
         // inviare la mail
-        Mail::to('hello@example.com')->send(new newContact($new_lead));
+        Mail::to('hello@example.com')->send(new NewContact($new_lead));
 
         return response()->json([
             'success' => true,
